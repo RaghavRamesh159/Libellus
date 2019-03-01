@@ -11,7 +11,7 @@ router.get('/', (req,res) => {
 
 router.post('/', passport.authenticate('local'), (req, res, next) => {
     if(req.user){
-    res.redirect('homepage');
+    res.redirect('/users/homepage');
   }});
 
 
