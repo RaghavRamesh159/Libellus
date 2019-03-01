@@ -1,11 +1,33 @@
 <% include ../userhead %>
+<script type="text/javascript" src="/scripts/add.js"></script>
 <div class="section">
 	<div class="container has-text-centered">
 		<h1 class="title is-2">Journal</h1>
 
-		<h1 class="subtitle"> Author 1, Author 2, Author3 pending...</h1>
-
 		<form action="something" method="POST" enctype="multipart/form-data">
+
+			<div class="field has-text-centered">
+					<div class="subtitle">Add or remove Authors</div>
+						<a class="button is-medium" id="addAuthor" onclick="addAuthor()">Add</a>
+						<a class="button is-medium" id="addAuthor" onclick="deleteAuthor()">Delete</a>
+			</div>
+
+
+			<div class="field" id="authors">
+					<div class="field is-horizontal">
+							<div class="field-label is-medium">
+								<label class="label">Author 1</label>
+							</div>
+							<div class="field-body">
+								<div class="field">
+									<div class="control">
+											<input class="input is-medium" type="text" name="author1"/>
+									</div>
+								</div>
+							</div>
+					</div>
+			</div>
+			
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
 				  <label class="label">Type of Journal*</label>
