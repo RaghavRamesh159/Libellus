@@ -5,14 +5,14 @@ const {ensureAuthenticated} = require('../config/auth')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/', ensureAuthenticated,(req, res) => {
 	res.render('submit');
 })
 
-router.get('/journal', (req, res) => {
+router.get('/journal', ensureAuthenticated,(req, res) => {
 	res.render('submissions/journal');
 })
-router.get('/conference', (req, res) => {
+router.get('/conference',ensureAuthenticated, (req, res) => {
 	res.render('submissions/conference');
 })
 module.exports = router;

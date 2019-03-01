@@ -7,6 +7,9 @@ const passportconfig = require('./config/passport')(passport);
 
 let app = express();
 
+app.locals.username='';
+
+
 // Create db config and then connect
 const db = require('./config/keys').mongoURI
 mongoose.connect(db, { useNewUrlParser:true})
