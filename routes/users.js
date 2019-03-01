@@ -3,11 +3,19 @@ const bcrypt = require('bcryptjs')
 const {ensureAuthenticated} = require('../config/auth')
 const User = require('../models/User')
 
+const submitRouter = require
+
 const router = express.Router()
 
 router.get('/register', (req,res) => {
     res.render('register')
 })
+
+router.use('/submit', require('./submit'));
+
+router.get('/homepage', ensureAuthenticated, (req,res) =>{
+    res.render('homepage')
+});
 
 router.post('/register', (req,res) =>{
     const {fname, mname, lname, email, pwd, pwd2} = req.body;
@@ -48,6 +56,7 @@ router.post('/register', (req,res) =>{
 router.get('/logout', (req, res)=>{
     //console.log(req.session);
     req.logOut();
+    req.session.destroy();
     //console.log(req.session);
     res.redirect('/');
 });
