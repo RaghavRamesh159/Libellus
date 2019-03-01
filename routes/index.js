@@ -16,7 +16,8 @@ router.post('/', passport.authenticate('local'), (req, res, next) => {
 
 
   router.get('/homepage', ensureAuthenticated, (req,res) =>{
-    res.render('homepage')
+    //console.log(req.session)
+    res.render('homepage', {username: req.user.fname+' '+req.user.lname })
 });
 
 
