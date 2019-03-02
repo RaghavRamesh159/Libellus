@@ -1,0 +1,23 @@
+
+<%
+if(errors!='')
+{   
+    %>
+    <div class="notfication is-warning">
+    <button class="button is-medium" id="dismiss">Dismiss errors</button>
+    </div>
+ <%  errors.forEach((ele)=>{%>
+<div class="notification is-warning" id="error">
+<%= ele.msg %>
+</div>
+<script>
+    document.getElementById('dismiss').addEventListener('click',() => {
+    document.getElementById('error').remove();
+    document.getElementById('dismiss').remove();
+    });
+</script>
+<% 
+})
+}
+%>
+ 

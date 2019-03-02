@@ -12,7 +12,7 @@ const submitRouter = require
 const router = express.Router()
 
 router.get('/register', (req,res) => {
-    res.render('register')
+    res.render('register',{errors:''})
 })
 
 router.use('/submit', require('./submit'));
@@ -25,42 +25,45 @@ router.post('/register', validReg, (req,res) =>{
 
     let errors = validationResult(req);
     if(!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
+        //console.log(errors.array())
+        res.render('register',{errors:errors.array()})
+        // return res.status(422).json({ errors: errors.array() });
     }
-    const {fname, mname, lname, email, pwd, pwd2} = req.body;
-    let newUser = new User({
-        fname,
-        mname,
-        lname,
-        email,
-        password:pwd
-    });
+    else{
+        const {fname, mname, lname, email, password, pwd2} = req.body;
+        let newUser = new User({
+            fname,
+            mname,
+            lname,
+            email,
+            password
+        });
 
-    bcrypt.genSalt(10, (err,salt) =>{
-        if(err){
-            console.log(err);
-        }
-        else{
-            bcrypt.hash(newUser.password,salt, (err,hash) =>{
-              if(err) {console.log(err)}
-              else{
-                  newUser.password = hash;
-                  console.log(hash)
-                  console.log(newUser.password)
+        bcrypt.genSalt(10, (err,salt) =>{
+            if(err){
+                console.log(err);
+            }
+            else{
+                bcrypt.hash(newUser.password,salt, (err,hash) =>{
+                if(err) {console.log(err)}
+                else{
+                    newUser.password = hash;
+                    console.log(hash)
+                    console.log(newUser.password)
 
-                newUser.save()
-                    .then( user => {
-                        res.redirect('/')
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
-              }  
-            })
-            console.log(newUser)
-            
-        }
-    })
+                    newUser.save()
+                        .then( user => {
+                            res.redirect('/')
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
+                }  
+                })
+                console.log(newUser)
+                
+            }
+        })}
 })
 router.get('/logout', (req, res)=>{
     req.logOut();
