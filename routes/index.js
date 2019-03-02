@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get('/', (req,res) => {
     res.render('index')
-})
+});
 
 router.post('/', passport.authenticate('local',  
   { successRedirect: '/users/homepage',

@@ -7,6 +7,21 @@ const cookie = require('cookie-parser')
 const flash = require('connect-flash')
 const passportconfig = require('./config/passport')(passport);
 const expressValidator = require('express-validator');
+const elasticsearch = require('elasticsearch');
+
+const client = new elasticsearch.Client({
+	host: 'localhost:9200',
+	log: 'trace'
+});
+client.ping({
+	requestTimeout: 30000,
+  }, function (error) {
+	if (error) {
+	  console.error('elasticsearch cluster is down!');
+	} else {
+	  console.log('All is well');
+	}
+});
 
 let app = express();
 

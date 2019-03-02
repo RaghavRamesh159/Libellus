@@ -13,6 +13,10 @@ router.get('/register', (req,res) => {
     res.render('register',{errors:''})
 })
 
+router.get('/search', (req, res) => {
+    res.render('search');
+  });
+
 router.use('/submit', require('./submit'));
 
 router.get('/homepage', ensureAuthenticated, (req,res) =>{
