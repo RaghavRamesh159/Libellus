@@ -7,8 +7,6 @@ const {check, validationResult } = require('express-validator/check');
 
 const validReg = require('../views/validators/userRegister');
 
-const submitRouter = require
-
 const router = express.Router()
 
 router.get('/register', (req,res) => {

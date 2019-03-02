@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const ConfSchema = new mongoose.Schema({
     author1:{
         type : String,
-        required : true
     },
     author2:{
         type : String
@@ -30,13 +29,12 @@ const ConfSchema = new mongoose.Schema({
     venue        : { type:String},
     abstract     : { type:String},
     pages        : { type:String},
-    keywords     : { type:object},
+    keywords     : { type:Object},
     url          : { type:String},
-    info  : {type:Sting}
-    }
-,
-{
-    collection: 'conference'
+    info  : {type:String}
+},
+    {
+        collection: 'conference'
 })
 
 const Conf = mongoose.model('Conference', ConfSchema)
