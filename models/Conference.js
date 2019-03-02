@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const mexp = require('mongoose-elasticsearch-xp');
 
 const ConfSchema = new mongoose.Schema({
     author1:{
@@ -36,6 +37,8 @@ const ConfSchema = new mongoose.Schema({
     {
         collection: 'conference'
 })
+
+ConfSchema.plugin(mexp);
 
 const Conf = mongoose.model('Conference', ConfSchema)
 
