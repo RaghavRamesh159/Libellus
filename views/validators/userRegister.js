@@ -3,9 +3,9 @@ const {check, validationResult } = require('express-validator/check');
 let validationArray = [
 	
 	check('fname', "First name can't be empty")
-	.exists(),
+	.isLength({min:1}),
 	check('lname', "Last name can't be empty")
-	.exists(),
+	.isLength({min:1}),
 
     check('email', 'Invalid Email')
 	.isEmail(),
