@@ -59,7 +59,7 @@ router.post('/conference',ensureAuthenticated, (req, res) => {
 	newConf.save()
 	.then(conf => {res.redirect('/users/homepage')})
     .catch(err => {console.log(err)})  
-    console.log(newConf)
+    console.log(new Conf)
 })
 
 module.exports = router;
