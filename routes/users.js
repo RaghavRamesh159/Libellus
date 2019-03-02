@@ -3,6 +3,9 @@ const bcrypt = require('bcryptjs')
 const {ensureAuthenticated} = require('../config/auth')
 const User = require('../models/User')
 const flash = require('connect-flash')
+const {check, validationResult } = require('express-validator/check');
+
+const validReg = require('../views/validators/userRegister');
 
 const submitRouter = require
 
@@ -18,7 +21,12 @@ router.get('/homepage', ensureAuthenticated, (req,res) =>{
     res.render('homepage')
 });
 
-router.post('/register', (req,res) =>{
+router.post('/register', validReg, (req,res) =>{
+
+    let errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    }
     const {fname, mname, lname, email, pwd, pwd2} = req.body;
     let newUser = new User({
         fname,

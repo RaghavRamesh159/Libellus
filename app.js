@@ -6,6 +6,7 @@ const passport 	= 	require('passport')
 const cookie = require('cookie-parser')
 const flash = require('connect-flash')
 const passportconfig = require('./config/passport')(passport);
+const expressValidator = require('express-validator');
 
 let app = express();
 
