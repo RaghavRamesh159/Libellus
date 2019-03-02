@@ -3,6 +3,8 @@ const ejsLayout =   require('express-ejs-layouts')
 const mongoose  =   require('mongoose')
 const session 	= 	require('express-session')
 const passport 	= 	require('passport')
+const cookie = require('cookie-parser')
+const flash = require('connect-flash')
 const passportconfig = require('./config/passport')(passport);
 
 let app = express();
@@ -24,11 +26,25 @@ app.use(express.static(__dirname+'/views'))
 app.use(ejsLayout)
 app.set('view engine','ejs')
 
+// Use cookie parser(required for flash to work)
+// app.use(cookie)
+
+
 // Body parser
 app.use(express.urlencoded({ extended:false }));
 
 // Passport
 app.use(session({secret:'anything'}));
+
+// Use flash middleware
+app.use(flash())
+app.use((req, res, next) => {
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	res.locals.error = req.flash('error');
+	next();
+  });
+
 
 app.use(passport.initialize());
 app.use(passport.session());

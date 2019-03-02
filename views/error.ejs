@@ -1,0 +1,30 @@
+<% 
+if(error!='') { %>
+<div class="notification is-warning" id="error">
+        <button class="delete" id="dismiss"></button>
+<%= error %>
+</div>
+<script>
+    document.getElementById('dismiss').addEventListener('click',() => {
+    document.getElementById('error').remove();
+    });
+</script>
+<% 
+} 
+%>
+ 
+<% 
+if(success_msg!='') { %>
+<div class="notification is-success" id="lo">
+        <button class="delete" id="d2"></button>
+<%= success_msg%>
+</div>
+<script>
+    document.getElementById('d2').addEventListener('click',() => {
+    document.getElementById('lo').remove();
+    });
+</script>
+<% 
+} 
+%> 
+

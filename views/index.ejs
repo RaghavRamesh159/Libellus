@@ -1,6 +1,6 @@
-<section class="hero is-danger is-fullheight">
+<section class="hero is-dark is-fullheight">
 		<div class="hero-head">
-			<div class="navbar is-danger" role="navigation">
+			<div class="navbar is-dark" role="navigation">
 				<nav class="container">
 					<div class="navbar-brand">
 						<div class="navbar-item">
@@ -8,13 +8,16 @@
 								<i class="fas fa-3x fa-bolt"></i>
 							</span>
 						</div>
-						<div class="navbar-item">
+						<div class="navbar-item" >
+						<a href="/users/homepage" >
 						<h1 class="title is-1">
 							Libellus
 						</h1>
+					</a>
 						</div>
 					</div>
 					<div class="navbar-menu">
+
 						<div class="navbar-end">
 							<span class="navbar-item">
 								<h1 class="subtitle">
@@ -22,7 +25,7 @@
 								</h1>
 							</span>
 							<span class="navbar-item">
-								<a class="button is-danger is-inverted is-medium" href="/users/register" method="get">
+								<a class="button is-dark is-inverted is-medium" href="/users/register" method="get">
 									<span class="icon">
 										<i class="fas fa-user"></i>
 									</span>
@@ -46,8 +49,10 @@
 					</div>
 					
 					<div class="column ">
+						
 						<div class="box">
 							<h1 class="title has-text-black has-text-centered is-2">Already a user?</h1>
+							<% include error %>	
 							<form action="/" method="post">
 							<div class="field">
 								<label class="label">Email</label>
@@ -69,7 +74,7 @@
 										<i class="fas fa-lock"></i>
 									</span>
 								</div>
-								<a href=""><p class="help is-link">Forgot Password?</p></a>
+								<a href=""><p class="help is-dark">Forgot Password?</p></a>
 							</div>
 							<div class="field">
 								<label class="checkbox">
@@ -78,7 +83,7 @@
 								</label>
 							</div>
 							<div class="field has-text-centered">
-								<input class="button is-danger is-large" type="submit" value="Log In">
+								<input class="button is-dark is-large" type="submit" value="Log In">
 							</div>
 							</form>
 						</div>

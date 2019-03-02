@@ -1,3 +1,5 @@
+const flash = require('connect-flash')
+
 module.exports = {
     ensureAuthenticated : (req,res,next) => {
         if(req.isAuthenticated()){
@@ -6,7 +8,9 @@ module.exports = {
                 
         }
         else{
-            res.send('no')
+            
+            req.flash('error','please login')
+            res.redirect('/')
         }
     }
 }

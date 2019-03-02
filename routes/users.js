@@ -2,6 +2,7 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 const {ensureAuthenticated} = require('../config/auth')
 const User = require('../models/User')
+const flash = require('connect-flash')
 
 const submitRouter = require
 
@@ -54,11 +55,13 @@ router.post('/register', (req,res) =>{
     })
 })
 router.get('/logout', (req, res)=>{
-    //console.log(req.session);
     req.logOut();
-    req.session.destroy();
-    //console.log(req.session);
+    // req.session.destroy();
+    req.flash('success_msg','Logged Out!')
     res.redirect('/');
+    // console.log(req.session)
+    // req.session.destroy();
+    // console.log(req.session)
 });
 
 

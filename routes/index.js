@@ -9,10 +9,11 @@ router.get('/', (req,res) => {
     res.render('index')
 })
 
-router.post('/', passport.authenticate('local'), (req, res, next) => {
-    if(req.user){
-    res.redirect('/users/homepage');
-  }});
-
+router.post('/', passport.authenticate('local',  
+  { successRedirect: '/users/homepage',
+   failureRedirect: '/',
+   failureFlash: true 
+  }))
+  
 
 module.exports = router
