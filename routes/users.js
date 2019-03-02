@@ -27,11 +27,12 @@ router.post('/register', validReg, (req,res) =>{
     if(!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
     }
-    const {fname, mname, lname, email, pwd, pwd2} = req.body;
+    const {fname, mname, lname, department, email, pwd, pwd2} = req.body;
     let newUser = new User({
         fname,
         mname,
         lname,
+        department,
         email,
         password:pwd
     });
@@ -64,12 +65,8 @@ router.post('/register', validReg, (req,res) =>{
 })
 router.get('/logout', (req, res)=>{
     req.logOut();
-    // req.session.destroy();
     req.flash('success_msg','Logged Out!')
     res.redirect('/');
-    // console.log(req.session)
-    // req.session.destroy();
-    // console.log(req.session)
 });
 
 
