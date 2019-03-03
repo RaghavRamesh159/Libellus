@@ -1,13 +1,19 @@
 const express = require('express')
 const bcrypt = require('bcryptjs')
 const {ensureAuthenticated} = require('../config/auth')
-const User = require('../models/User')
 const flash = require('connect-flash')
+const elastic = require('elasticsearch')
+const db = require('../config/fire-conf')
 const {check, validationResult } = require('express-validator/check');
 
 const validReg = require('../views/validators/userRegister');
 
 const router = express.Router()
+
+let client = new elastic.Client({
+    host: 'localhost:9200',
+    log: 'trace'
+  });
 
 router.get('/register', (req,res) => {
     res.render('register',{errors:''})
@@ -16,6 +22,15 @@ router.get('/register', (req,res) => {
 router.get('/search', (req, res) => {
     res.render('search');
   });
+
+router.post('/search', (req,res) => {
+    let {search} = req.body;
+
+    let results = client.search({
+        q: search
+    });
+    console.log(results)
+})
 
 router.use('/submit', require('./submit'));
 
@@ -32,42 +47,29 @@ router.post('/register', validReg, (req,res) =>{
         // return res.status(422).json({ errors: errors.array() });
     }
     else{
-        const {fname, mname, lname,department, email, password, pwd2} = req.body;
-        let newUser = new User({
-            fname,
-            mname,
-            lname,
-            department,
-            email,
-            password
-        });
-
+        let {fname, mname, lname,department, email, password, pwd2} = req.body;
         bcrypt.genSalt(10, (err,salt) =>{
             if(err){
                 console.log(err);
             }
             else{
-                bcrypt.hash(newUser.password,salt, (err,hash) =>{
-                if(err) {console.log(err)}
-                else{
-                    newUser.password = hash;
-                    console.log(hash)
-                    console.log(newUser.password)
+                bcrypt.hash(password,salt, (err,hash) =>{
+                    if(err) {console.log(err)}
+                    else{
+                        password = hash;
+                        db.ref('users/'+(fname+lname))
+                            .set({fname, mname, lname, email, department, password})
+                                .then(()  => res.redirect('/'))
+                                .catch(err =>{console.log(err)});
 
-                    newUser.save()
-                        .then( user => {
-                            res.redirect('/')
-                        })
-                        .catch(err => {
-                            console.log(err)
-                        })
-                }  
+                    }  
                 })
-                console.log(newUser)
-                
             }
-        })}
+        })
+    }
 })
+
+
 router.get('/logout', (req, res)=>{
     req.logOut();
     req.flash('success_msg','Logged Out!')

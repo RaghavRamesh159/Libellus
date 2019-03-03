@@ -1,6 +1,5 @@
 const express   =   require('express')
 const ejsLayout =   require('express-ejs-layouts')
-const mongoose  =   require('mongoose')
 const session 	= 	require('express-session')
 const passport 	= 	require('passport')
 const cookie = require('cookie-parser')
@@ -30,11 +29,11 @@ let app = express();
 app.locals.username='';
 
 
-// Create db config and then connect
-const db = require('./config/keys').mongoURI
-mongoose.connect(db, { useNewUrlParser:true})
-.then(() => console.log('MongoDB Connected...'))
-.catch(err => console.log(err)); 
+// // Create db config and then connect
+// const db = require('./config/keys').mongoURI
+// mongoose.connect(db, { useNewUrlParser:true})
+// .then(() => console.log('MongoDB Connected...'))
+// .catch(err => console.log(err)); 
 
 // Allow static content like css files to load
 // Static pages need to be enabled explicitly through middleware(using app.use(callback) )

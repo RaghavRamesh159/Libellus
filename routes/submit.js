@@ -1,7 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const passport = require('passport')
-const Conf = require('../models/Conference')
+// const Conf = require('../models/Conference')
 const {ensureAuthenticated} = require('../config/auth')
 
 const router = express.Router()

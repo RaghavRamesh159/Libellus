@@ -1,46 +1,46 @@
-const mongoose = require('mongoose');
-const mexp = require('mongoose-elasticsearch-xp');
+// const mongoose = require('mongoose');
+// const mexp = require('mongoose-elasticsearch-xp');
 
-const UserSchema = new mongoose.Schema({
-    fname:{
-        type : String,
-        required : true
-    },
-    mname:{
-        type : String,
-    },
+// const UserSchema = new mongoose.Schema({
+//     fname:{
+//         type : String,
+//         required : true
+//     },
+//     mname:{
+//         type : String,
+//     },
 
-    lname:{
-        type : String,
-        required : true
-    },
+//     lname:{
+//         type : String,
+//         required : true
+//     },
 
-    department:{
-        type : String,
-        required : true
-    },
+//     department:{
+//         type : String,
+//         required : true
+//     },
 
-    email:{
-        type : String,
-        required : true
-    },
+//     email:{
+//         type : String,
+//         required : true
+//     },
 
-    password:{
-        type : String,
-        required : true
-    },
+//     password:{
+//         type : String,
+//         required : true
+//     },
 
-    date:{
-        type:Date,
-        default : Date.now
-    }
-},
-{
-    collection: 'authors'
-})
+//     date:{
+//         type:Date,
+//         default : Date.now
+//     }
+// },
+// {
+//     collection: 'authors'
+// })
 
-UserSchema.plugin(mexp);
+// UserSchema.plugin(mexp);
 
-const User = mongoose.model('User', UserSchema)
+// const User = mongoose.model('User', UserSchema)
 
-module.exports = User;
+// module.exports = User;
