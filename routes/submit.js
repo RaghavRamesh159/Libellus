@@ -1,7 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const passport = require('passport')
-// const Conf = require('../models/Conference')
+const db = require('../config/fire-conf')
 const {ensureAuthenticated} = require('../config/auth')
 
 const router = express.Router()
@@ -14,52 +14,42 @@ router.get('/journal', ensureAuthenticated,(req, res) => {
 	res.render('submissions/journal');
 })
 
+router.post('/journal', ensureAuthenticated, (req, res) => {
+	let document = req.body;
+
+	for(const key in document) {
+		let value = document[key];
+		if(value===undefined || value==='') {
+			delete document[key]
+		}
+	}
+
+	// console.log(document);
+	let confIdentifier = document.doi;
+	db.ref('journals/'+confIdentifier).set(document)
+	.then( () => {res.redirect('/users/submit')})
+    .catch(err => {console.log(err)})  
+})
+
+
 router.get('/conference',ensureAuthenticated, (req, res) => {
 	res.render('submissions/conference');
 })
 
-router.post('/conference',ensureAuthenticated, (req, res) => {
-	const {author1,author2,author3,author4,author5,
-    conferenceType,
-    conferenceName,
-    doi  ,
-    isbn ,
-    researchArea,
-    projectName,
-    paperTitle,
-    organiser,
-    fromDate     ,
-    toDate       ,
-    venue        ,
-    abstract     ,
-    pages        ,
-    keywords     ,
-    url          ,
-    info
-	} = req.body;
-	console.log(req.body);
-    newConf = new Conf({author1,author2,author3,author4,author5,
-		conferenceType,
-		conferenceName,
-		doi  ,
-		isbn ,
-		researchArea,
-		projectName,
-		paperTitle,
-		organiser,
-		fromDate     ,
-		toDate       ,
-		venue        ,
-		abstract     ,
-		pages        ,
-		keywords     ,
-		url          ,
-		info
-		})
-	newConf.save()
-	.then(conf => {res.redirect('/users/homepage')})
+router.post('/conferences',ensureAuthenticated, (req, res) => {
+	let document = req.body;
+
+	for(const key in document) {
+		let value = document[key];
+		if(value===undefined || value==='') {
+			delete document[key]
+		}
+	}
+	// console.log(document);
+	let confIdentifier = document.doi;
+	db.ref('conference/'+confIdentifier).set(document)
+	.then( () => {res.redirect('/users/submit')})
     .catch(err => {console.log(err)})  
-    console.log(new Conf)
 })
 
 module.exports = router;
