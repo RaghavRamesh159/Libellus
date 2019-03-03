@@ -20,16 +20,15 @@ router.get('/register', (req,res) => {
 })
 
 router.get('/search', (req, res) => {
-    res.render('search');
+    res.render('search',{hits:undefined});
   });
 
 router.post('/search', (req,res) => {
     let {search} = req.body;
 
-    let results = client.search({
-        q: search
-    });
-    console.log(results)
+    client.search({q: search})
+        .then( body => {console.log(body.hits.hits); res.render('search', {hits:body.hits.hits})})
+    // res.render('search', {hits:results.hits.hits._source})
 })
 
 router.use('/submit', require('./submit'));
