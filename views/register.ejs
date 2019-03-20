@@ -1,3 +1,4 @@
+
 <nav class="navbar is-dark" role="navigation">
         <div class="container">
                 <div class="navbar-brand">
@@ -18,7 +19,7 @@
     <div class="container has-text-centered">
         <h1 class="title is-2">Enter Your Details...</h1>
         <%- include regerrors -%>
-        <form action="/users/register" method="post">
+        <form action="/users/register" method="post" id="main" novalidate>
         <div class="field is-horizontal">
             <div class="field-label is-medium">
               <label class="label">First Name</label>
@@ -26,7 +27,9 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input name="fname" class="input is-medium" type="text" placeholder="First Name">
+                  <input name="fname" id="fname" class="input is-medium" type="text" placeholder="First Name">
+                </div>
+                <div class="messages">
                 </div>
               </div>
             </div>
@@ -38,7 +41,9 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input name="mname" class="input is-medium" type="text" placeholder="Middle Name">
+                  <input name="mname" id="mname" class="input is-medium" type="text" placeholder="Middle Name">
+                </div>
+                <div class="messages">
                 </div>
               </div>
             </div>
@@ -50,8 +55,10 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input name="lname" class="input is-medium" type="text" placeholder="Last Name">
+                  <input name="lname" id="lname" class="input is-medium" type="text" placeholder="Last Name">
                 </div>
+                <div class="messages">
+                  </div>
               </div>
             </div>
         </div>
@@ -63,7 +70,7 @@
               <div class="field">
                 <div class="control">
                     <div class="select is-medium">
-                        <select name="department">
+                        <select name="department" id="department" >
                           <option value="CS">CS</option>
                           <option value="IS">IS</option>
                           <option value="EC">EC</option>
@@ -75,6 +82,8 @@
                         </select>
                     </div>
                 </div>
+                <div class="messages">
+                  </div>
               </div>
             </div>
         </div>
@@ -86,8 +95,10 @@
                 <div class="field-body">
                   <div class="field">
                     <div class="control">
-                      <input name="email" class="input is-medium" type="text" placeholder="e.g: mbst@gmail.com">
+                      <input name="email" id="email" class="input is-medium" type="text" placeholder="e.g: mbst@gmail.com">
                     </div>
+                    <div class="messages">
+                      </div>
                   </div>
                 </div>
         </div>
@@ -99,8 +110,10 @@
                 <div class="field-body">
                   <div class="field">
                     <div class="control">
-                      <input name="password" class="input is-medium" type="password" placeholder="e.g: mbst!1">
+                      <input name="password" id="password" class="input is-medium" type="password" placeholder="e.g: mbst!1">
                     </div>
+                    <div class="messages">
+                      </div>
                   </div>
                 </div>
         </div>
@@ -112,8 +125,10 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input name="passwordConfirmation" class="input is-medium" type="password" placeholder="e.g: mbst!1">
+                  <input name="passwordConfirmation" id="passwordConfirmation" class="input is-medium" type="password" placeholder="e.g: mbst!1">
                 </div>
+                <div class="messages">
+                  </div>
               </div>
             </div>
         </div>
@@ -129,7 +144,9 @@
                     Cancel
                   </a>
                 </div>
-              </div>
-            </form>
+        </div>
+        </form>
+        <script type="text/javascript" src="/scripts/monitors/something.js"></script>
     </div>
 </div>
+
