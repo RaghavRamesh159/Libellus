@@ -12,8 +12,9 @@
 		<h1 class="title">Search Results...</h1>
 	</div>
 </div>
-<% if(hits!=[]){
+<% if(hits!=[]&&hits!=undefined){
 %>
+<h1> <%= JSON.stringify(hits)%></h1>
 <div class="content">
 	<div class="container">
 	<table  is-fullwidth class="table">
