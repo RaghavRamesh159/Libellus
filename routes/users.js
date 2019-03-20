@@ -7,6 +7,7 @@ const db = require('../config/fire-conf')
 const {check, validationResult } = require('express-validator/check');
 
 const validReg = require('../views/validators/userRegister');
+const transformHits = require('../views/scripts/searchRes');
 
 const router = express.Router() 
 
@@ -20,16 +21,18 @@ router.get('/register', (req,res) => {
 })
 
 router.get('/search', (req, res) => {
-    res.render('search',{hits:{hello: "go"}});
+    res.render('search',{hits:undefined});
   });
 
 router.post('/search', (req,res) => {
     let {search} = req.body;
 
     client.search({q: search})
-        .then( body => {console.log(body.hits.hits); res.render('search', {hits:body.hits.hits})})
+        .then( body => { 
+            res.render('search', {hits: transformHits(body.hits.hits)});
+        });
     // res.render('search', {hits:results.hits.hits._source})
-})
+});
 
 router.use('/submit', require('./submit'));
 
