@@ -8,7 +8,7 @@ const {check, validationResult } = require('express-validator/check');
 
 const validReg = require('../views/validators/userRegister');
 
-const router = express.Router()
+const router = express.Router() 
 
 let client = new elastic.Client({
     host: 'localhost:9200',
@@ -20,7 +20,7 @@ router.get('/register', (req,res) => {
 })
 
 router.get('/search', (req, res) => {
-    res.render('search',{hits:undefined});
+    res.render('search',{hits:{hello: "go"}});
   });
 
 router.post('/search', (req,res) => {

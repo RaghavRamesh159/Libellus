@@ -46,7 +46,6 @@ app.set('view engine','ejs')
 // Use cookie parser(required for flash to work)
 // app.use(cookie)
 
-
 // Body parser
 app.use(express.urlencoded({ extended:false }));
 
