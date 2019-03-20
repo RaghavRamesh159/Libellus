@@ -36,7 +36,7 @@ router.get('/conference',ensureAuthenticated, (req, res) => {
 	res.render('submissions/conference');
 })
 
-router.post('/conferences',ensureAuthenticated, (req, res) => {
+router.post('/conference',ensureAuthenticated, (req, res) => {
 	let document = req.body;
 
 	for(const key in document) {
@@ -47,7 +47,7 @@ router.post('/conferences',ensureAuthenticated, (req, res) => {
 	}
 	// console.log(document);
 	let confIdentifier = document.doi;
-	db.ref('conference/'+confIdentifier).set(document)
+	db.ref('conferences/'+confIdentifier).set(document)
 	.then( () => {res.redirect('/users/submit')})
     .catch(err => {console.log(err)})  
 })
