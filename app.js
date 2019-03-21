@@ -70,7 +70,7 @@ app.use('/users',require('./routes/users'))
 
 
 // Define PORT
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 5000
 
 // Start server 
 app.listen(PORT, ()=>{

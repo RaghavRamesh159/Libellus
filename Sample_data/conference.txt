@@ -1,0 +1,6 @@
+Sowmyarani C N;Object Classification based on Spatial Orientation using Ultrasonic Sensors;4th IEEE International Conference on Computing, Communication, Control and Automation;;;;2018;
+Vinay Hegde;VoIP Smart speech encoding mechanism using high performance computing;International conference, Bhuvaneshwar;;;;2018;
+Azra N;Evaluation and Review of Object Tracking Solutions for Video Sequences;International Conference, Coimbatore;;;;2018;
+Rajashree Shettar;Stable Reduced Link Break Routing Technique in Mobile Ad Hoc Network;Second International Conference on Advances in Computing and Data Science (ICACDS);;;;2018;
+Shantha Rangaswamy;IoT Based Road Travel Time Detection;IEEE International Conference on Advances In Computing, Communications and Informatics,ICACCI;;;;2018;
+Nagaraja G.S,Vinay Hegde;Governance using High Performance Computing for Smart City Applications;3rd International Conference on Smart Computing and Infromatics(SCI-2018),KIIT, Bhubaneswar, Odissa;;;;2018;
