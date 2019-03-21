@@ -7,7 +7,7 @@ var constraints = {
 			maximum: 20
 		},
 		format: {
-			pattern: "[A-Z][a-z]+",
+			pattern: /[A-Z][a-zA-Z ]+/,
 			message: "Must start with capital and can only contain alphabets"
 		}
 	},
@@ -19,7 +19,7 @@ var constraints = {
 			maximum: 20
 		},
 		format: {
-			pattern: "[A-Za-z0-9_-: ]",
+			pattern: /[A-Za-z0-9-_: ]/,
 			message: "can contain only letters, numbers and _-:"
 		}
 	},
@@ -27,7 +27,7 @@ var constraints = {
 	paperTitle: {
 		presence: true,
 		format: {
-			pattern: "[A-Z][a-zA-Z-_:]*",
+			pattern: /[A-Z][a-zA-Z-_:]*/,
 			message: "must start with capital and can contain only letters, underscore and hyphen"
 		}
 	},
@@ -35,7 +35,7 @@ var constraints = {
 	doi: {
 		presence:true,
 		format: {
-			pattern: "\d{8}",
+			pattern: /\d{8}/,
 			message: "must be 8 digits"
 		}
 	},
@@ -43,7 +43,7 @@ var constraints = {
 	isbn: {
 		presence: true,
 		format: {
-			pattern: "\d{4}\-\d{4}",
+			pattern: /\d{4}\-\d{4}/,
 			message: "must be of the format dddd-dddd"
 		}
 	},
@@ -51,7 +51,7 @@ var constraints = {
 	journalName: {
 		presence: true,
 		format: {
-			pattern: "[A-Z][]"
+			pattern: /[A-Z][a-zA-Z0-9-_:]/
 		}
 	},
 

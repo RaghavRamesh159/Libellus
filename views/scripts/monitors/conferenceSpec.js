@@ -7,7 +7,7 @@ let constraints = {
 			maximum: 20
 		},
 		format: {
-			pattern: "[A-Z][a-z]+",
+			pattern: /[A-Z][a-zA-Z ]+/,
 			message: "Must start with capital and can only contain alphabets"
 		}
 	},	
@@ -18,36 +18,36 @@ let constraints = {
 			maximum: 20
 		},
 		format: {
-			pattern: "[A-Za-z0-9_-: ]",
+			pattern: /[A-Za-z0-9-_: ]+/,
 			message: "can contain only letters, numbers and _-:"
 			}
 		},
 	paperTitle: {
 		presence: true,
 		format: {
-			pattern: "[A-Z][a-zA-Z-_:]*",
+			pattern: /[A-Z][a-zA-Z-_: ]*/,
 			message: "must start with capital and can contain only letters, underscore and hyphen"
 			}
 		},
 	doi: {
 		presence:true,
 		format: {
-			pattern: "\d{8}",
+			pattern: /\d{8}/,
 			message: "must be 8 digits"
 		}
 	},
 	isbn: {
 		presence: true,
 		format: {
-			pattern: "\d{4}\-\d{4}",
+			pattern: /\d{4}\-\d{4}/,
 			message: "must be of the format dddd-dddd"
 		}
 	},
 	
-	confernceName: {
+	conferenceName: {
 		presence: true,
 		format: {
-			pattern: "[A-Z][]"
+			pattern: /[A-Z][a-zA-Z-_: ]+/
 		}
 	},
 	
@@ -55,7 +55,7 @@ let constraints = {
 		presence: true,
 		date: {
 			latest: moment().subtract(1, "days"),
-			message: "^Cant submit future publications"
+			message: "^Cant submit future conferences"
 		}
 	},
 		
@@ -63,7 +63,7 @@ let constraints = {
 		presence: true,
 		date: {
 			latest: moment().subtract(1, "days"),
-			message: "^Cant submit future publications"
+			message: "^Cant submit future conferences"
 		}
 	},
 	pages: {
