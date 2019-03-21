@@ -71,6 +71,9 @@ router.post('/register', validReg, (req,res) =>{
     }
 })
 
+router.get('/analytics', ensureAuthenticated, (req, res) =>{
+    res.redirect('http://localhost:5601')
+})
 
 router.get('/logout', (req, res)=>{
     req.logOut();
