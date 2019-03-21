@@ -7,8 +7,9 @@ const db = require('../config/fire-conf')
 const {check, validationResult } = require('express-validator/check');
 
 const validReg = require('../views/validators/userRegister');
+const transformHits = require('../views/scripts/searchRes');
 
-const router = express.Router()
+const router = express.Router() 
 
 let client = new elastic.Client({
     host: 'localhost:9200',
@@ -27,9 +28,11 @@ router.post('/search', (req,res) => {
     let {search} = req.body;
 
     client.search({q: search})
-        .then( body => {console.log(body.hits.hits); res.render('search', {hits:body.hits.hits})})
+        .then( body => { 
+            res.render('search', {hits: transformHits(body.hits.hits)});
+        });
     // res.render('search', {hits:results.hits.hits._source})
-})
+});
 
 router.use('/submit', require('./submit'));
 

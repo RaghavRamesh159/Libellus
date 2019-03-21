@@ -14,26 +14,43 @@
 </div>
 <% if(hits!=[]&&hits!=undefined){
 %>
-<h1> <%= JSON.stringify(hits)%></h1>
+
+<br>
 <div class="content">
 	<div class="container">
-	<table  is-fullwidth class="table">
-		<thead>
-		<tr>
-			<th><abbr>Name</abbr></th>
-			<th>Department</th>
-			<th><abbr>E-Mail</abbr></th>
-		</tr>
-		</thead>
-		<tbody>
+	
 <%
 	hits.forEach( ele =>{
 %>
-		<tr>
-			<td><%=ele._source.fname+' '+ele._source.lname %></td>
-			<td><%=ele._source.department%></td>
-			<td><%=ele._source.email%></td>
-		</tr>
+		<div class="box">
+			<div class="level">
+				<div class="level-left">
+					<div class="level-item">
+						<div>
+						<% for(const item in ele.info.main) {%>
+							<p class="title"> <%= ele.info.main[item]%></p>
+						<%}%>
+						<!-- </div>
+					</div>
+					<div class="level-item">
+						<div> -->
+						<% for(const item in ele.info.aux) {%>
+							<p class="subtitle"> <%= ele.info.aux[item]%></p>
+						<%}%>
+						</div>
+					</div>
+				</div>
+				<div class="level-right">
+					<div class="level-item">
+						<p class="subtitle is-3"><%= ele.type %></p>
+					</div>
+				</div>
+			</div>
+		</div>
 <%	})%>
-	</tbody>
+	
 <%} %>
+	</div>
+</div>
+
+<br>

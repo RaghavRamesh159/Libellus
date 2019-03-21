@@ -1,2 +1,6 @@
 node_modules
+<<<<<<< HEAD
 fireNation.json
+=======
+config/fireNation.json
+>>>>>>> 3e48de2252405af246848a66257ec2fa29e80dfd
