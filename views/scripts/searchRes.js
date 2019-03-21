@@ -26,8 +26,9 @@ function buildJournal(journal) {
 		aux: {}
 	}
 
-	element.info.main.title = source.paperTitle;
-	element.info.aux.abstract = source.abstract;
+	element.info.main.title = source.title;
+	element.info.aux.author1 = source.author1;
+	element.info.aux.author2 = source.author2;
 
 	return element;
 }
@@ -42,8 +43,9 @@ function buildConference(conference) {
 		aux: {}
 	}
 
-	element.info.main.title = source.paperTitle;
-	element.info.aux.abstract = source.abstract;
+	element.info.main.title = source.title;
+	element.info.aux.author1 = source.author1;
+	element.info.aux.author2 = source.author2;
 
 	return element;
 }
@@ -66,7 +68,7 @@ function transformHits(hits) {
 			finalHits.push(buildJournal(hit));
 			break;
 
-			case 'conference':
+			case 'conferences':
 			finalHits.push(buildConference(hit));
 			break;
 
