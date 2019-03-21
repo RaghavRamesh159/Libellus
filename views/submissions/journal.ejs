@@ -4,12 +4,12 @@
 	<div class="container has-text-centered">
 		<h1 class="title is-2">Journal</h1>
 
-		<form action="/users/submit/journal" method="POST">
+		<form action="/users/submit/journal" method="POST" id="main">
 
 			<div class="field has-text-centered">
 					<div class="subtitle">Add or remove Authors</div>
 						<a class="button is-medium" id="addAuthor" onclick="addAuthor()">Add</a>
-						<a class="button is-medium" id="addAuthor" onclick="deleteAuthor()">Delete</a>
+						<a class="button is-medium" id="deleteAuthor" onclick="deleteAuthor()">Delete</a>
 			</div>
 
 
@@ -21,8 +21,10 @@
 							<div class="field-body">
 								<div class="field">
 									<div class="control">
-											<input class="input is-medium" type="text" name="author1"/>
+											<input class="input is-medium" type="text" name="author1" id="author1" />
 									</div>
+									<div class="messages">
+                  </div>
 								</div>
 							</div>
 					</div>
@@ -36,11 +38,13 @@
 				  <div class="field">
 						<div class="control">
 								<div class="select is-medium">
-									<select name="type">
+									<select id="type" name="type">
 										<option value="national">National</option>
 										<option value="international">International</option>
 									</select>
 								</div>
+						</div>
+						<div class="messages">
 						</div>
 				  </div>
 				</div>
@@ -53,7 +57,9 @@
 			<div class="field-body">
 			  <div class="field">
 				<div class="control">
-				  <input class="input is-medium" type="text" name="researchArea" placeholder="e.g: Nobel Prize"/>
+				  <input class="input is-medium" type="text" name="researchArea" id="researchArea" placeholder="e.g: Nobel Prize"/>
+				</div>
+				<div class="messages">
 				</div>
 			  </div>
 			</div>
@@ -65,7 +71,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="projectName" placeholder="e.g: The EU"/>
+					  <input class="input is-medium" type="text" name="projectName" id="projectName" placeholder="e.g: The EU"/>
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -77,7 +85,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="paperTitle" placeholder="e.g: The EU"/>
+					  <input class="input is-medium" type="text" name="paperTitle" id="paperTitle" placeholder="e.g: The EU"/>
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -89,7 +99,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="doi" placeholder="e.g: The EU">
+					  <input class="input is-medium" type="text" name="doi" id="doi" placeholder="e.g: The EU">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -101,32 +113,23 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="isbn" placeholder="e.g: The EU">
+					  <input class="input is-medium" type="text" name="isbn" id="isbn" placeholder="e.g: The EU">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
 		</div>
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Name of Journal*</label>
+				  <label class="label">Name of Journal</label>
 				</div>
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="journalName" placeholder="e.g: The EU"/>
+					  <input class="input is-medium" type="text" name="journalName" id="journalName" placeholder="e.g: The EU"/>
 					</div>
-				  </div>
-				</div>
-		</div>
-		
-		<div class="field is-horizontal">
-				<div class="field-label is-medium">
-				  <label class="label">Date of publishing*</label>
-				</div>
-				<div class="field-body">
-				  <div class="field">
-					<div class="control">
-					  <input class="input is-medium" type="date" name="dateOfPublish" placeholder="e.g: Nobel Prize">
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -134,60 +137,85 @@
 		
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Pages*</label>
+				  <label class="label">Date of publishing</label>
 				</div>
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="pages" placeholder="e.g: The EU">
+					  <input class="input is-medium" type="date" name="dateOfPublish" id="dateOfPublish" placeholder="e.g: Nobel Prize">
+					</div>
+					<div class="messages">
+					</div>
+				  </div>
+				</div>
+		</div>
+		
+		<div class="field is-horizontal">
+				<div class="field-label is-medium">
+				  <label class="label">Pages</label>
+				</div>
+				<div class="field-body">
+				  <div class="field">
+					<div class="control">
+					  <input class="input is-medium" type="text" name="pages" id="pages" placeholder="e.g: The EU">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
 		</div>
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Abstract*</label>
+				  <label class="label">Abstract</label>
 				</div>
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <textarea class="textarea is-medium" type="text" name="abstract" placeholder="e.g: mbst.com"></textarea>
+					  <textarea class="textarea is-medium" type="text" name="abstract" id="abstract" placeholder="e.g: mbst.com"></textarea>
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
 		</div>
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Keywords*</label>
+				  <label class="label">Keywords</label>
 				</div>
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="keywords" placeholder="e.g: mbst.com">
+					  <input class="input is-medium" type="text" name="keywords" id="keywords" placeholder="e.g: mbst.com">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
 		</div>
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Volume*</label>
+				  <label class="label">Volume</label>
 				</div>
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="volume" placeholder="e.g: mbst.com">
+					  <input class="input is-medium" type="text" name="volume" id="volume" placeholder="e.g: mbst.com">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
 		</div>
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Issue*</label>
+				  <label class="label">Issue</label>
 				</div>
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="issue" placeholder="e.g: mbst.com">
+					  <input class="input is-medium" type="text" name="issue" id="issue" placeholder="e.g: mbst.com">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -199,7 +227,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="impactFactor" placeholder="e.g: mbst.com">
+					  <input class="input is-medium" type="text" name="impactFactor" id="impactFactor" placeholder="e.g: mbst.com">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -211,7 +241,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="citationIndex" placeholder="e.g: mbst.com">
+					  <input class="input is-medium" type="text" name="citationIndex" id="citationIndex" placeholder="e.g: mbst.com">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -223,7 +255,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <input class="input is-medium" type="text" name="url" placeholder="e.g: mbst.com">
+					  <input class="input is-medium" type="text" name="url" id="url" placeholder="e.g: mbst.com">
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -235,7 +269,9 @@
 				<div class="field-body">
 				  <div class="field">
 					<div class="control">
-					  <textarea class="textarea is-medium" name="info" placeholder="e.g: Experience was nice"></textarea>
+					  <textarea class="textarea is-medium" name="info" id="info" placeholder="e.g: Experience was nice"></textarea>
+					</div>
+					<div class="messages">
 					</div>
 				  </div>
 				</div>
@@ -243,13 +279,13 @@
 
 		<div class="field is-horizontal">
 				<div class="field-label is-medium">
-				  <label class="label">Upload Paper*</label>
+				  <label class="label">Upload Paper</label>
 				</div>
 				<div class="field-body">
 						<div class="field">
 								<div class="file is-dark has-name">
 								  <label class="file-label">
-									<input class="file-input" type="file" name="paperFile">
+									<input class="file-input" type="file" name="paperFile" id="paperFile" >
 									<span class="file-cta">
 									  <span class="file-icon">
 										<i class="fas fa-upload"></i>
@@ -262,6 +298,8 @@
 									  File not uploaded
 									</span>
 								  </label>
+								</div>
+								<div class="messages">
 								</div>
 							  </div>
 				</div>
@@ -280,5 +318,7 @@
 				</div>
 			  </div>
 			</form>
+			<script type="text/javascript" src="/scripts/monitors/journalSpec.js"></script>
+    	<script type="text/javascript" src="/scripts/monitors/formMonitor.js"></script>
 	</div>
 </div>

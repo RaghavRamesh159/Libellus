@@ -28,12 +28,18 @@ function newAuth(num) {
 
 	let fieldBody = document.createElement("div"); fieldBody.setAttribute('class', 'field-body');
 	let inputField = document.createElement("div"); inputField.setAttribute('class', 'field');
-	let control = document.createElement("p"); control.setAttribute('class', 'control');
+	let control = document.createElement("div"); control.setAttribute('class', 'control');
+	let messages = document.createElement("div"); messages.setAttribute("class", "messages");
 	let input = document.createElement("input");
 	input.setAttribute('class', 'input is-medium');
 	input.setAttribute('name', 'author'+num);
+	input.setAttribute('id', 'author'+num);
 
-	fieldBody.appendChild(inputField.appendChild(control.appendChild(input)));
+	control.appendChild(input);
+	inputField.appendChild(control);
+	inputField.appendChild(messages);
+
+	fieldBody.appendChild(inputField);
 
 	field.appendChild(fieldBody);
 
