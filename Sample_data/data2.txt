@@ -1,0 +1,6 @@
+Nagaraja G S,Manjunath C R;Multicast Routing for mesh-based using DSR in Wireless Sensor network;International Journal of Engineering and Technology;7;3;173-76;2018;
+Poojitha G.,Sowmyarani C. N;Pipeline for Real-time Anomaly Detection in Log Data Streams using Apache Kafka and Apache Spark;International Journal of Computer Applications;182;24;8-13;2018;10.5120/ijca2018917942;
+Anala M R;Performance Analysis of Mesh-based NoC’s on Routing algorithms;International Journal of Computer Engineering;8;5;3368-3373;
+Sadanand R. Inamdar,B. Sathish Babu,Ravi M. Yadahalli;Ant Based Adaptive Directional Monitoring MAC Protocol Using Smart Antennas in MANET;International Journal of Business Data Communications and Networking (IJBDCN) –IGI Global publications;14;1;46-66;2018;1548064X;
+Seema B Hegde,B. Sathish Babu,Pallapa Venkataram;A Dynamic Security Scheme for Opportunistic Networks using Cognitive Computing; International Journal of Mobile Computing and Multimedia Communications (IJMCMC);9;3;2018;
+Girish Rao Salanke N.S;An Efficient Score Level Multimodal Biometric System using ECG and Fingerprint;Journal of Telecommunication, Electronic and Computer Engineering (JTEC);;;;2018;

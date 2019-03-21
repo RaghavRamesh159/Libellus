@@ -1,0 +1,6 @@
+Bhargavi K,B. Sathish Babu,S. S. Iyengar;Predicting the Brand Popularity from the Brand Metadata;International Journal of Electrical and Computer Engineering (IJECE);8;5;;2018;
+Jagadamba G,B. Sathish Babu;A Service Oriented Adaptive Trust Evaluation Model for Ubiquitous Computing Environment;International Journal of Ad Hoc and Ubiquitous Computing (IJAHUC), Inderscience publications;29;4;;2018;
+Dr Shobha G,Dr. Deepamala N;Effective approach in making Capstone: A Holistic Learning experience to students of undergraduate computer science & engineering program;Journal of Technology and Science Education;;;;2018;
+Kathavate S., Rajesh L., Srinath N.K;PR-LRU: Partial random LRU technique for performance improvement of last level cache;International Journal of Computer Aided Engineering and Technology;;;;2019;
+Girish Rao Salanke N.S;An Efficient Score Level Multimodal Biometric System using ECG and Fingerprint;Journal of Telecommunication, Electronic and Computer Engineering (JTEC);;;;2018;
+Kalyan Nagaraj,Biplab Bhattacharjee,Amulyashree Sridhar,Sharvani GS;Detection phishing websites using a novel twofold ensemble model; Journal of Systems and Information Technology;20;3;321-357;2018;
