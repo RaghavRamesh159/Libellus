@@ -22,7 +22,7 @@ let constraints = {
 			message: "can contain only letters, numbers and _-:"
 			}
 		},
-	paperTitle: {
+	title: {
 		presence: true,
 		format: {
 			pattern: /[A-Z][a-zA-Z-_: ]*/,

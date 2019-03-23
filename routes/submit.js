@@ -46,8 +46,8 @@ router.post('/conference',ensureAuthenticated, (req, res) => {
 		}
 	}
 	// console.log(document);
-	let confIdentifier = document.doi;
-	db.ref('conference/'+confIdentifier).set(document)
+	let confIdentifier = document.title;
+	db.ref('conferences/'+confIdentifier).set(document)
 	.then( () => {res.redirect('/users/submit')})
     .catch(err => {console.log(err)})  
 })

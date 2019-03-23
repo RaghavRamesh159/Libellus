@@ -19,12 +19,12 @@ var constraints = {
 			maximum: 20
 		},
 		format: {
-			pattern: /[A-Za-z0-9-_: ]/,
+			pattern: /[A-Za-z0-9-_: ]+/,
 			message: "can contain only letters, numbers and _-:"
 		}
 	},
 
-	paperTitle: {
+	title: {
 		presence: true,
 		format: {
 			pattern: /[A-Z][a-zA-Z-_:]*/,
@@ -51,7 +51,7 @@ var constraints = {
 	journalName: {
 		presence: true,
 		format: {
-			pattern: /[A-Z][a-zA-Z0-9-_:]/
+			pattern: /[A-Z][a-zA-Z0-9-_:]+/
 		}
 	},
 

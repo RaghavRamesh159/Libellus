@@ -25,7 +25,7 @@ if(args["j"]):
 	ref = db.reference('journals/')
 	t='journal'
 if(args["c"]):
-	ref = db.reference('conference/')
+	ref = db.reference('conferences/')
 	t = 'conference'
 
 # display a friendly message to the user
